@@ -51,4 +51,4 @@ function initiateIDF(idf_option, n_documents, relevant_documents) {
     }
 }
 
-module.exports = { NormalIDF, ProbabilisticIDF, IDF_OPTIONS, initiateIDF};
+module.exports = { initiateIDF};

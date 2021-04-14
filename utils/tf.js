@@ -1,5 +1,5 @@
 const TF_OPTIONS = {
-    RAW_COUNT: 1,
+    NORMAL: 1,
     LOG_NORMALIZATION: 2,
 }
 
@@ -17,7 +17,7 @@ class TF {
     }
 }
 
-class RawCountTF extends TF{
+class NormalTF extends TF{
 
     constructor(n_words, word_count) {
         super(n_words,word_count);
@@ -42,12 +42,12 @@ class LogNormalizationTF extends TF{
 
 function initiateTF(tf_option, n_words, word_count) {
     switch (tf_option) {
-        case TF_OPTIONS.RAW_COUNT:
-            return new RawCountTF(n_words, word_count);
-        case TF_OPTIONS.LogNormalizationTF:
-        default:
+        case TF_OPTIONS.LOG_NORMALIZATION:
             return new LogNormalizationTF(n_words, word_count);
+        case TF_OPTIONS.NORMAL:
+        default:
+            return new NormalTF(n_words, word_count);
     }
 }
 
-module.exports = { RawCountTF, LogNormalizationTF, TF_OPTIONS,initiateTF };
+module.exports = { initiateTF };
